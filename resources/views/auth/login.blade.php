@@ -1,47 +1,64 @@
 <x-guest-layout>
+    <div class="login-header">
+        <a href="/" class="brand-logo login-logo">
+            <span class="logo-icon">⚡</span>
+            <span class="logo-text">MeuProjeto</span>
+        </a>
+        <h2>Acesse sua conta</h2>
+        <p>Insira suas credenciais para continuar</p>
+    </div>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login') }}" class="login-form">
         @csrf
 
         <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <div class="form-group">
+            <label for="email" class="form-label">{{ __('Email') }}</label>
+            <input id="email" class="custom-input" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username" placeholder="seu@email.com" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2 error-msg" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div class="form-group mt-4">
+            <label for="password" class="form-label">{{ __('Password') }}</label>
+            <input id="password" class="custom-input" type="password" name="password" required autocomplete="current-password" placeholder="••••••••" />
+            <x-input-error :messages="$errors->get('password')" class="mt-2 error-msg" />
         </div>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+        <!-- Remember Me & Forgot Password -->
+        <div class="form-options mt-4">
+            <label for="remember_me" class="remember-label">
+                <input id="remember_me" type="checkbox" class="custom-checkbox" name="remember">
+                <span>{{ __('Remember me') }}</span>
             </label>
-        </div>
 
-        <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                <a class="forgot-link" href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
         </div>
+
+        <!-- Submit Button -->
+        <div class="form-actions mt-6">
+            <button type="submit" class="btn btn-primary w-full">
+                {{ __('Log in') }}
+            </button>
+        </div>
+
+         <div class="back-home mt-4">
+            <a href="{{ route('register') }}" class="btn-secondary-link">
+                Não tem uma conta? Registre-se
+            </a>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="back-home mt-4">
+            <a href="/" class="btn-secondary-link">← Voltar para a página inicial</a>
+        </div>
+        
     </form>
 </x-guest-layout>
