@@ -32,7 +32,7 @@
             </div>
         </div>
     </header>
-
+  {{ $slot }}
     <!-- Rodapé -->
     <footer class="footer">
         <div class="container footer-container">
@@ -43,6 +43,6 @@
             </div>
         </div>
     </footer>
-      {{ $slot }}
+    
 </body>
 </html>

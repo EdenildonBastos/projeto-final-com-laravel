@@ -1,0 +1,147 @@
+/* ==========================================================================
+   CONFIGURAÇÃO E VARIÁVEIS DO TEMA DARK
+   ========================================================================== */
+:root {
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --bg-dark: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+    --accent-glow: rgba(99, 102, 241, 0.15);
+}
+
+/* Reset Global e Fundo Dark */
+* {
+    box-sizing: border-box;
+}
+
+body, .bg-light {
+    background-color: var(--bg-dark) !important;
+    color: var(--text-main) !important;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   NAVEGAÇÃO (NAVBAR BOOTSTRAP ADAPTADA)
+   ========================================================================== */
+.navbar, .bg-primary {
+    background-color: rgba(15, 23, 42, 0.85) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand {
+    color: var(--text-main) !important;
+    font-weight: 700;
+}
+
+.nav-link {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-main) !important;
+}
+
+/* Botão de menu mobile */
+.navbar-toggler {
+    border-color: var(--border-color);
+}
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.bg-primary.text-white.py-5 {
+    background: radial-gradient(circle at top, var(--accent-glow) 0%, transparent 70%), var(--bg-dark) !important;
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.display-4 {
+    font-size: 3rem;
+    font-weight: 800 !important;
+    background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+}
+
+.lead {
+    color: var(--text-muted) !important;
+}
+
+/* Botão do Hero */
+.btn-light {
+    background-color: var(--primary) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px;
+    padding: 12px 30px;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    transition: all 0.2s ease;
+}
+
+.btn-light:hover {
+    background-color: var(--primary-hover) !important;
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   CARDS DE LIVROS
+   ========================================================================== */
+.card {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+}
+
+.card-title {
+    color: var(--text-main) !important;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card-body .text-muted {
+    color: var(--text-muted) !important;
+}
+
+.card-link {
+    color: var(--primary) !important;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.card-link:hover {
+    color: #a5b4fc !important;
+    text-decoration: underline;
+}
+
+/* Imagem da capa */
+.card-img-top {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Títulos de Seção */
+h2 {
+    color: var(--text-main);
+    font-weight: 700;
+}
