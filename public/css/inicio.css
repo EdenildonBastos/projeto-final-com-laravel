@@ -1,0 +1,80 @@
+/*==========================================================================
+Utilizado para estilizar a página inicial do BookCollection, 
+   Estilos Modernos / Dark Theme Avançado - BookCollection
+   ========================================================================== */
+   
+
+/* Definição de Variáveis de Cores e Gradientes */
+:root {
+    --primary-glow: rgba(13, 110, 253, 0.15);
+    --primary-accent: #0d6efd;
+    --primary-hover: #0b5ed7;
+    --card-bg: #1e232a;
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-muted-custom: #9ca3af;
+}
+
+/* Fundo Geral com Sutil Gradiente de Profundidade */
+body.bg-dark {
+    background: radial-gradient(circle at top center, #1a1f29 0%, #0f1216 100%) !important;
+    color: #e5e7eb;
+    font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+}
+
+/* --- HERO SECTION --- */
+
+/* Badge com Brilho Neon (Glow) */
+.badge-hero-pill {
+    background-color: var(--primary-glow);
+    border: 1px solid rgba(13, 110, 253, 0.3);
+    box-shadow: 0 0 20px rgba(13, 110, 253, 0.2);
+    backdrop-filter: blur(8px);
+}
+
+/* Efeito Gradiente no Texto do Título */
+.text-gradient {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Sombra e Tipografia do Hero */
+.hero-title {
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+}
+
+/* --- CARDS & TABELAS MODERNAS --- */
+
+/* Card Estilo "Glassmorphism" / Elevado */
+.card-modern {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--card-border) !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(12px);
+}
+
+/* Transição de Hover na Tabela */
+.table-modern tbody tr {
+    transition: all 0.2s ease-in-out;
+}
+
+.table-modern tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* --- BOTÕES & INTERAÇÕES --- */
+
+.btn-primary-glow {
+    background-color: var(--primary-accent);
+    border-color: var(--primary-accent);
+    box-shadow: 0 4px 14px rgba(13, 110, 253, 0.4);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-primary-glow:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.6);
+    transform: translateY(-1px);
+}

@@ -1,0 +1,104 @@
+<x-app-layout>
+    <!-- Conteúdo Principal -->
+    <div class="container py-5">
+        <!-- Cabeçalho -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h1 class="h2 mb-1 text-white fw-bold">Coleção de Livros</h1>
+                <p class="text-white-50 mb-0">Gerencie sua biblioteca de livros</p>
+            </div>
+            <a href="#" class="btn btn-primary d-inline-flex align-items-center gap-2 shadow-sm">
+                <span>+</span> Adicionar Novo Livro
+            </a>
+        </div>
+
+        <!-- Tabela de Livros -->
+        <div class="card border-0 shadow-sm overflow-hidden ">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col" class="ps-4">Livro</th>
+                            <th scope="col">Autor</th>
+                            <th scope="col">Gênero</th>
+                            <th scope="col">Publicação</th>
+                            <th scope="col" class="text-end pe-4">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($books as $book)
+                            <tr>
+                                <td class="ps-4">
+                                    <div class="fw-semibold text-dark">{{ $book['title'] }}</div>
+                                </td>
+                                <td>{{ $book['author'] }}</td>
+                                <td>
+                                    <span
+                                        class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3">
+                                        {{ $book['genre'] }}
+                                    </span>
+                                </td>
+                                <td class="text-secondary">{{ $book['published_year'] }}</td>
+                                <td class="text-end pe-4">
+                                    <div class="btn-group btn-group-sm" role="group" aria-label="Ações do Livro">
+                                        <a href="{{ route('books.show', $book['id']) }}"
+                                            class="btn btn-outline-secondary">Ver</a>
+                                        <a href="#" class="btn btn-outline-primary">Editar</a>
+
+                                        {{-- Formulário de exclusão para métodos HTTP seguros --}}
+                                        <form action="#" method="POST" class="d-inline"
+                                            onsubmit="return confirm('Tem certeza que deseja excluir este livro?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                            class="btn btn-outline-danger border-start-0 rounded-end">Excluir</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- Paginação -->
+            <div
+                class="card-footer bg-body-tertiary border-top-0 py-3 d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+                <span class="text-secondary small">
+                    Mostrando <span class="fw-semibold text-dark">1</span> a <span
+                        class="fw-semibold text-dark">5</span> de <span class="fw-semibold text-dark">24</span>
+                    resultados
+                </span>
+
+                <nav aria-label="Navegação da paginação">
+                    <ul class="pagination pagination-sm mb-0">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                        </li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link text-body" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link text-body" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Próximo</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Paginação -->
+            {{-- @if (method_exists($books, 'links'))
+            <div class="card-footer bg-white border-top-0 py-3 d-flex justify-content-between align-items-center">
+                {{ $books->links() }}
+            </div>
+        @endif --}}
+        </div>
+    </div>
+
+
+</x-app-layout>

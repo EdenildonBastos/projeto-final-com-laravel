@@ -4,7 +4,7 @@
         <div class="container">
             <h1 class="display-4 fw-bold mb-3">Bem-vindo à Sua Biblioteca de Livros</h1>
             <p class="lead mb-4">Organize e gerencie sua coleção de livros com facilidade</p>
-            <a href="books.html" class="btn btn-light btn-lg px-5 fw-semibold">Navegar pela Coleção</a>
+            <a href="/livros" class="btn btn-light btn-lg px-5 fw-semibold">Navegar pela Coleção</a>
         </div>
     </div>
 

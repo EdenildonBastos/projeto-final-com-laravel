@@ -10,7 +10,7 @@
         <div class="col-12 col-md-10 col-lg-8">
             
             <!-- 1. Atualizar Informações do Perfil -->
-            <div class="card shadow-sm border-0 mb-4">
+           <div class="card bg-dark text-dark border-secondary shadow-sm mb-4">
                 <div class="card-body p-4">
                     @include('profile.partials.update-profile-information-form')
                 </div>

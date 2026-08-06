@@ -1,50 +1,22 @@
 <x-layout>
+<div class="text-center py-5">
+    <!-- Badge com Efeito Glow -->
+    <div class="d-inline-flex align-items-center gap-2 px-3 py-1-5 mb-4 rounded-pill badge-hero-pill">
+        <span class="fw-semibold small text-primary">✨ Sua Biblioteca Digital Pessoal</span>
+    </div>
 
-    <!-- Conteúdo Principal -->
-    <main>
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="container hero-container">
-                <div class="hero-badge">✨ Nova Versão 2.0</div>
-                <h1 class="hero-title">Construa o futuro da sua aplicação web</h1>
-                <p class="hero-subtitle">
-                    Uma plataforma moderna, rápida e intuitiva desenvolvida para transformar suas ideias em realidade com eficiência e alta performance.
-                </p>
-                <div class="hero-actions">
-                    <a href="/register" class="btn btn-primary btn-large">Começar Agora</a>
-                    <a href="#features" class="btn btn-outline btn-large">Explorar Recursos</a>
-                </div>
-            </div>
-        </section>
+    <!-- Título com Texto em Gradiente -->
+    <h1 class="display-3 fw-bold text-white hero-title mb-3">
+        Organize sua estante e <br class="d-none d-md-block">
+        <span class="text-gradient">acompanhe suas leituras</span> em um só lugar
+    </h1>
 
-        <!-- Seção de Recursos -->
-        <section id="features" class="features-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Tudo o que você precisa</h2>
-                    <p>Ferramentas poderosas projetadas para otimizar sua experiência.</p>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🚀</div>
-                        <h3>Desempenho Rápido</h3>
-                        <p>Otimizado para entregar respostas velozes e navegação fluida em qualquer dispositivo.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔒</div>
-                        <h3>Segurança Avançada</h3>
-                        <p>Proteção de dados rigorosa com as melhores práticas de criptografia do mercado.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎨</div>
-                        <h3>Design Moderno</h3>
-                        <p>Interface limpa, intuitiva e focada na melhor experiência do usuário.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- Subtítulo -->
+    <p class="lead mx-auto mb-4 text-secondary-emphasis" style="max-width: 680px; color: #9ca3af !important;">
+        O BookCollection é a plataforma feita para quem ama ler. Cadastre seus livros, organize seu acervo pessoal e tenha o controle completo da sua biblioteca digital de forma simples, rápida e intuitiva.
+    </p>
 
+</div>
 
 </x-layout>
 
