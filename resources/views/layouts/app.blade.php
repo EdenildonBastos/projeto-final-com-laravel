@@ -16,15 +16,16 @@
       <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
       <!-- Bootstrap CSS & Ícones -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+      {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"> --}}
+       @vite(['resources/css/app.scss', 'resources/js/app.js']);
 
      <!-- CSS Customizado (Asset local) -->
       <link rel="stylesheet" href="{{ asset('css/book.css') }}"> 
 
       <!-- Vite Scripts (compilação do Laravel) -->
-      @vite(['resources/css/app.css', 'resources/js/app.js'])
-  </head>
+      {{-- @vite(['resources/css/app.css', 'resources/js/app.js'])
+  </head> --}}
 
   <body class="bg-light">
 
@@ -109,7 +110,7 @@
       </main>
         
       <!-- Responsavel por carregar todos os recursos de interatividade em JavaScript do Bootstrap 5 -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> --}}
 
       <!-- Rodapé -->
 <footer class="bg-dark text-white-50 py-4 mt-auto">
