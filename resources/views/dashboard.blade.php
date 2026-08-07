@@ -11,45 +11,13 @@
     <!-- Livros Recentes -->
     <div class="container py-5">
         <h2 class="mb-4">Livros Adicionados Recentemente</h2>
+         <!-- Card de Livro 1 -->
         <div class="row g-4">
-            <!-- Card de Livro 1 -->
+           @foreach ($books as $book)
             <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://placehold.co/400x300/6c757d/ffffff?text=Capa+do+Livro" alt="Capa do Livro" class="card-img-top" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">O Grande Gatsby</h5>
-                        <p class="text-muted mb-2">F. Scott Fitzgerald</p>
-                        <p class="small text-muted mb-3">Publicado: 1925</p>
-                        <a href="book-view.html" class="card-link">Ver Detalhes →</a>
-                    </div>
-                </div>
+                <x-book-card :book="$book" class="shadow-sm"/>
             </div>
-
-            <!-- Card de Livro 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://placehold.co/400x300/6c757d/ffffff?text=Capa+do+Livro" alt="Capa do Livro" class="card-img-top" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">O Apanhador no Campo de Centeio</h5>
-                        <p class="text-muted mb-2">Harper Lee</p>
-                        <p class="small text-muted mb-3">Publicado: 1960</p>
-                        <a href="book-view.html" class="card-link">Ver Detalhes →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card de Livro 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://placehold.co/400x300/6c757d/ffffff?text=Capa+do+Livro" alt="Capa do Livro" class="card-img-top" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">1984</h5>
-                        <p class="text-muted mb-2">George Orwell</p>
-                        <p class="small text-muted mb-3">Publicado: 1949</p>
-                        <a href="book-view.html" class="card-link">Ver Detalhes →</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 
