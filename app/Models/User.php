@@ -8,16 +8,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+//CRUD - Create, Read, Update, Delete
+//create=> user::create(['name'=>'John Doe', 'email'=>'john@example.com', 'password'=>'123456']);
+//read => User::find(1);
+//update=> user::update(['name'=>'fulano']);
+//delete=> user::delete(1);
+
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
+   /**
      *
      * @var list<string>
      */
+
+    // autoriza o laravel fazer update em massa nesses campos, ou seja, quando o usuário se cadastrar, ele vai poder preencher esses campos.
     protected $fillable = [
         'name',
         'email',
@@ -25,7 +31,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Os atributos que devem ser ocultados quando forem pegar dados no banco de dados, ou seja, quando for pegar os dados do usuário, não vai mostrar a senha e o token de lembrar.
      *
      * @var list<string>
      */
@@ -41,9 +47,10 @@ class User extends Authenticatable
      */
     protected function casts(): array
     {
+        //informa o tipo de dado que o laravel deve esperar, ou seja, quando for pegar os dados do usuário, ele vai esperar que o email_verified_at seja um datetime e a senha seja um hashed.
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password' => 'hashed',  //responsável por criptografar a senha do usuário, ou seja, quando o usuário se cadastrar, a senha dele vai ser criptografada e armazenada no banco de dados.
         ];
     }
 }
