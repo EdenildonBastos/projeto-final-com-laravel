@@ -1,4 +1,5 @@
 <?php
+//Esse código gerencia todas as rotas de autenticação de uma aplicação Laravel (é o arquivo padrão gerado por pacotes como o Laravel Breeze.
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
@@ -10,7 +11,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
-
+ // Visitantes
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
@@ -35,6 +36,7 @@ Route::middleware('guest')->group(function () {
         ->name('password.store');
 });
 
+   //autenticados
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
         ->name('verification.notice');

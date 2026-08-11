@@ -22,15 +22,28 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
 Route::get('/livros', [BookController::class, 'index'])
     ->name('books.index');
 
-Route::get('livros/criar', [BookController::class, 'create'])->name('books.create');
+Route::get('livros/criar', [BookController::class, 'create'])
+->name('books.create');
 
 //cria requisição post que vem do formulário.
-Route::post('livros/criar', [BookController::class, 'store'])->name('books.store');
+Route::post('livros/criar', [BookController::class, 'store'])
+->name('books.store');
 
 
-Route::get('/livros/{book}',[BookController::class, 'show'])->name('books.show');
+Route::get('/livros/{book}',[BookController::class, 'show'])
+->name('books.show');
+
+Route::put('/livros/{book}',[BookController::class, 'update'])
+->name('books.update');
+
+Route::delete('/livros/{book}',[BookController::class, 'destroy'])
+->name('books.destroy');
+
+Route::get('/livros/{book}/editar',[BookController::class, 'edit'])
+->name('books.edit');
 //fim das rotas de implementação
 
+//gerencia todas as rotas de autenticação de uma aplicação Laravel (é o arquivo padrão gerado por pacotes como o Laravel Breeze
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

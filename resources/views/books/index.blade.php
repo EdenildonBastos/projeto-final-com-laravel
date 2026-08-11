@@ -43,10 +43,12 @@
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Ações do Livro">
                                         <a href="{{ route('books.show', $book['id']) }}"
                                             class="btn btn-outline-secondary">Ver</a>
-                                        <a href="#" class="btn btn-outline-primary">Editar</a>
+                                        {{-- <a href="{{route('books.edit',$book->id)}}" class="btn btn-outline-primary">Editar</a> --}}
+                                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-outline-success">Editar</a>
+
 
                                         {{-- Formulário de exclusão para métodos HTTP seguros --}}
-                                        <form action="#" method="POST" class="d-inline"
+                                        <form method="POST" action="{{route('books.destroy', $book->id)}}" class="d-inline"
                                             onsubmit="return confirm('Tem certeza que deseja excluir este livro?');">
                                             @csrf
                                             @method('DELETE')
