@@ -33,7 +33,8 @@
 
               <!-- Botão Mobile -->
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                  <span class="navbar-toggler-icon"></span>
+                  <span class="navbar-toggler-icon" style="filter: invert(36%) sepia(86%) saturate(3500%) hue-rotate(200deg) brightness(98%) contrast(96%);"></span>  <!--muda a cor de dentro do menu hamburguer.-->
+                 
               </button>
 
               <!-- Links da Navbar -->
@@ -103,9 +104,6 @@
           {{ $slot }}
       </main>
         
-      <!-- Responsavel por carregar todos os recursos de interatividade em JavaScript do Bootstrap 5 -->
-      {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> --}}
-
       <!-- Rodapé -->
 <footer class="bg-dark text-white-50 py-4 mt-auto">
     <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">

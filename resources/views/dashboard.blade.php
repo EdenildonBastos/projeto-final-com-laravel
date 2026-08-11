@@ -13,7 +13,7 @@
         <h2 class="mb-4">Livros Adicionados Recentemente</h2>
          <!-- Card de Livro 1 -->
         <div class="row g-4">
-           @foreach ($books as $book)
+           @foreach ($books->sortByDesc('created_at')->take(3) as $book)
             <div class="col-md-6 col-lg-4">
                 <x-book-card :book="$book" class="shadow-sm"/>
             </div>

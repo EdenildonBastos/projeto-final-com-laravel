@@ -7,7 +7,7 @@
                 <h1 class="h2 mb-1 text-white fw-bold">Coleção de Livros</h1>
                 <p class="text-white-50 mb-0">Gerencie sua biblioteca de livros</p>
             </div>
-            <a href="#" class="btn btn-primary d-inline-flex align-items-center gap-2 shadow-sm">
+            <a href="{{route('books.create')}}" class="btn btn-primary d-inline-flex align-items-center gap-2 shadow-sm">
                 <span>+</span> Adicionar Novo Livro
             </a>
         </div>
@@ -35,10 +35,10 @@
                                 <td>
                                     <span
                                         class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3">
-                                        {{ $book['genre'] }}
+                                        {{ $book['genre'] ['name'] }}
                                     </span>
                                 </td>
-                                <td class="text-secondary">{{ $book['published_year'] }}</td>
+                                <td class="text-secondary">{{ $book->published_year }}</td>
                                 <td class="text-end pe-4">
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Ações do Livro">
                                         <a href="{{ route('books.show', $book['id']) }}"
@@ -61,42 +61,11 @@
                     </tbody>
                 </table>
             </div>
-            <!-- Paginação -->
-            <div
-                class="card-footer bg-body-tertiary border-top-0 py-3 d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
-                <span class="text-secondary small">
-                    Mostrando <span class="fw-semibold text-dark">1</span> a <span
-                        class="fw-semibold text-dark">5</span> de <span class="fw-semibold text-dark">24</span>
-                    resultados
-                </span>
-
-                <nav aria-label="Navegação da paginação">
-                    <ul class="pagination pagination-sm mb-0">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
-                        </li>
-                        <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link text-body" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link text-body" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Próximo</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-
-            <!-- Paginação -->
-            {{-- @if (method_exists($books, 'links'))
-            <div class="card-footer bg-white border-top-0 py-3 d-flex justify-content-between align-items-center">
-                {{ $books->links() }}
-            </div>
-        @endif --}}
+               <!-- Paginação -->
+                <div class="d-flex justify-content-end my-4">           
+                 {{ $books->links() }}
+                </div>
+  
         </div>
     </div>
 
