@@ -16,13 +16,12 @@
       <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
       <!-- Bootstrap CSS & Ícones -->
-       @vite(['resources/css/app.scss', 'resources/js/app.js']);
+       @vite(['resources/css/app.scss', 'resources/js/app.js'])
 
      <!-- CSS Customizado (Asset local) -->
       <link rel="stylesheet" href="{{ asset('css/book.css') }}"> 
 
   <body class="bg-light">
-
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm position-relative" style="z-index: 1000;">
           <div class="container">
               <!-- Logo / Marca -->

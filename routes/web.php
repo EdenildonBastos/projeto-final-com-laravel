@@ -5,6 +5,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
+
+
 //MVC--> Model, View, Controller
 
 //rota para a página inicial do site
@@ -49,5 +51,21 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+// Burlar o atalho do Windows e servir as imagens direto do storage/app/public
+// Route::get('/storage/covers/{filename}', function ($filename) {
+//     // Caminho absoluto exato do arquivo no Windows
+//     $path = storage_path('app/public/covers/' . $filename);
+
+//     if (!file_exists($path)) {
+//         abort(404);
+//     }
+
+//     $file = file_get_contents($path);
+//     $type = mime_content_type($path);
+
+//     return response($file, 200)->header("Content-Type", $type);
+// });
 
 require __DIR__.'/auth.php';

@@ -19,7 +19,8 @@
                                 <p class="lead mb-0 text-white-50">{{ $book['author'] }}</p>
                             </div>
                             <div class="d-flex gap-2">
-                                <a href="{{ route('books.edit', $book->id) }}" class="btn btn-success px-4 shadow-sm">Editar</a>
+                                <a href="{{ route('books.edit', $book->id) }}"
+                                    class="btn btn-success px-4 shadow-sm">Editar</a>
 
                                 <form action="#" method="POST" class="d-inline"
                                     onsubmit="return confirm('Tem certeza que deseja excluir este livro?');">
@@ -36,15 +37,30 @@
                     <div class="card-body p-4">
                         <div class="row g-4">
                             <!-- Coluna Esquerda - Capa -->
-                            <div class="col-md-4">
-                                {{-- <div class="text-center">
-                                <img src="{{Storage::url($book->cover)}}"
+                            {{-- <div class="col-md-4">
+                                <div class="text-center">
+                                  <img src="{{Storage::url($book->cover)}}"
                                         alt="Capa do Livro" class="img-fluid rounded shadow-sm mb-3"
                                         style="max-height: 400px;">
-                                      
-                                </div> --}}
-                                <img src="https://placehold.co/400x300/6c757d/ffffff?text=Capa+do+Livro" alt="Capa do Livro" class="card-img-top" style="height: 200px; object-fit: cover;">
+                                        <img src="{{ asset('storage/' . $book->cover) }}" alt="{{ $book->title }}"> 
+                                </div>
 
+                            </div>  --}}
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    @if ($book->cover)
+                                        <img src="{{ asset($book->cover) }}" alt="{{ $book->title }}"
+
+                                            class="img-fluid rounded shadow-sm mb-3"
+                                            style="max-height: 400px; object-fit: cover;">
+                                    @else
+                                        <!-- Imagem padrão caso o livro não tenha capa cadastrada -->
+                                        <div class="bg-secondary text-white rounded shadow-sm mb-3 d-flex align-items-center justify-content-center"
+                                            style="height: 350px;">
+                                            <i class="bi bi-book fs-1"></i>
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
 
                             <!-- Coluna Direita - Informações -->
@@ -92,7 +108,8 @@
                         <div class="mt-4 pt-3 border-top d-flex gap-2">
                             <a href="{{ route('books.index') }}" class="btn btn-primary px-4 shadow-sm">Voltar para a
                                 Lista</a>
-                            <a href="{{ route('books.edit', $book->id) }}" class="btn btn-success px-4 shadow-sm">Editar Livro</a>
+                            <a href="{{ route('books.edit', $book->id) }}"
+                                class="btn btn-success px-4 shadow-sm">Editar Livro</a>
                         </div>
                     </div>
                 </div>

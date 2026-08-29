@@ -51,8 +51,8 @@
                             <div class="mb-3 text-white-50 mb-0">
                                 <label for="cover" class="form-label">Capa do Livro</label>
                                 <div class="mb-2">
-                                <img src="https://placehold.co/400x300/6c757d/ffffff?text=Capa+do+Livro" alt="Capa do Livro" class="card-img-top" style="height: 150px;
-                                width:150px; object-fit: cover;">
+                                {{-- <img src="https://placehold.co/400x300/6c757d/ffffff?text=Capa+do+Livro" alt="Capa do Livro" class="card-img-top" style="height: 150px;
+                                width:150px; object-fit: cover;"> --}}
                                 </div>
                                 <input type="file" class="form-control @error('cover') is-invalid @enderror" id="cover" name="cover"
                                     accept="image/*">

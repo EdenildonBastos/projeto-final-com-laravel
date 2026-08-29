@@ -2,7 +2,7 @@
        <!-- Seção Hero -->
     <div class="bg-primary text-white py-5 text-center">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-3">Bem-vindo à Sua Biblioteca de Livros</h1>
+            <h1 class="display-4 fw-bold mb-3 text-white">Bem-vindo à Sua Biblioteca de Livros</h1>
             <p class="lead mb-4">Organize e gerencie sua coleção de livros com facilidade</p>
             <a href="/livros" class="btn btn-light btn-lg px-5 fw-semibold">Navegar pela Coleção</a>
         </div>
@@ -10,7 +10,7 @@
 
     <!-- Livros Recentes -->
     <div class="container py-5">
-        <h2 class="mb-4">Livros Adicionados Recentemente</h2>
+        <h2 class="mb-4 text-white">Livros Adicionados Recentemente</h2>
          <!-- Card de Livro 1 -->
         <div class="row g-4">
            @foreach ($books->sortByDesc('created_at')->take(3) as $book)
