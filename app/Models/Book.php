@@ -12,7 +12,8 @@ class Book extends Model
         'genre_id',
         'published_year',
         'description',
-        'cover'
+        'cover',
+        'pdf_file',
     ];
     //============================
     /**

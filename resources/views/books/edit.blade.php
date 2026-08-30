@@ -16,9 +16,10 @@
 
                 <div class="card shadow-sm">
                     <div class="card-body p-4">
-                        <form method="POST" action="{{ route('books.update', $book->id) }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('books.update', $book->id) }}"
+                            enctype="multipart/form-data">
                             @csrf {{-- diretiva que protege contra ataques maliciosos --}}
-                             @method('PUT')
+                            @method('PUT')
                             <!-- Título -->
                             <div class="mb-3 text-white-50 mb-0">
                                 <label for="title" class="form-label">Título do Livro <span
@@ -26,7 +27,8 @@
                                 <input type="text"
                                     class="form-control @error('title') is-invalid 
                                 @enderror"
-                                    id="title" name="title" placeholder="Digite o título do livro" value="{{old('title',$book->title)}}">
+                                    id="title" name="title" placeholder="Digite o título do livro"
+                                    value="{{ old('title', $book->title) }}">
 
                                 @error('title')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -40,7 +42,8 @@
                                 <input type="text"
                                     class="form-control @error('author') is-invalid 
                                 @enderror"
-                                    id="author" name="author" placeholder="Digite o nome do autor" value="{{old('author',$book->author)}}">
+                                    id="author" name="author" placeholder="Digite o nome do autor"
+                                    value="{{ old('author', $book->author) }}">
 
                                 @error('author')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -49,26 +52,37 @@
 
                             <!-- Capa do Livro -->
                             <div class="mb-3 text-white-50 mb-0">
-                                <label for="cover" class="form-label">Capa do Livro</label>
+                                <label for="cover" class="form-label">Capa do Livro<span
+                                        class="text-danger">*</span></label>
                                 <div class="mb-2">
-                                {{-- <img src="https://placehold.co/400x300/6c757d/ffffff?text=Capa+do+Livro" alt="Capa do Livro" class="card-img-top" style="height: 150px;
-                                width:150px; object-fit: cover;"> --}}
                                 </div>
-                                <input type="file" class="form-control @error('cover') is-invalid @enderror" id="cover" name="cover"
-                                    accept="image/*">
-                                    @error('cover')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                <div class="form-text">Imagem JPG, PNG ou WebP (máx. 2MB)</div>
+                                <input type="file" class="form-control @error('cover') is-invalid @enderror"
+                                    id="cover" name="cover" accept="image/*">
+                                @error('cover')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <div class="form-text text-white-50 mb-0">IMAGEM JPG ou PNG (máx. 2MB)</div>
                             </div>
                             <!-- Livro -->
 
-                            {{-- <div class="mb-3 text-white-50">
-                                <label for="pdf_file" class="form-label">Arquivo do Livro (PDF) <span class="text-danger">*</span></label>
+                            <div class="mb-3 text-white-50">
+                                <label for="pdf_file" class="form-label">Arquivo do Livro (PDF)</label>
+
                                 <input type="file" class="form-control" id="pdf_file" name="pdf_file"
-                                    accept=".pdf,application/pdf" required>
-                                <div class="form-text text-white-50">Apenas arquivos no formato PDF (máx. 10MB)</div>
-                            </div> --}}
+                                    accept=".pdf,application/pdf">
+
+                                <div class="form-text text-white-50">Deixe em branco para manter o PDF atual (máx. 10MB)
+                                </div>
+
+                                <!-- Opcional: mostrar se já existe um PDF cadastrado -->
+                                @if (isset($book) && $book->pdf_file)
+                                    <div class="mt-2">
+                                        <small class="text-success">✔ PDF atual cadastrado:</small>
+                                        <a href="{{ asset($book->pdf_file) }}" target="_blank"
+                                            class="text-info text-decoration-underline ms-1">Visualizar</a>
+                                    </div>
+                                @endif
+                            </div>
 
                             <!-- Gênero e Ano de Publicação -->
                             <div class="row mb-3 text-white-50">
@@ -81,7 +95,7 @@
                                         <option value="">Selecione o Gênero</option>
                                         @foreach ($genres as $genre)
                                             <option value="{{ $genre->id }}"
-                                                {{ old('genre_id',$book->genre_id) == $genre->id ? 'selected' : '' }}>
+                                                {{ old('genre_id', $book->genre_id) == $genre->id ? 'selected' : '' }}>
                                                 {{ $genre->name }}
                                             </option>
                                         @endforeach
@@ -98,8 +112,8 @@
                                             class="text-danger">*</span></label>
                                     <input type="number"
                                         class="form-control @error('published_year') is-invalid @enderror"
-                                        id="published_year" name="published_year" value="{{ old('published_year',$book->published_year) }}"
-                                        placeholder="2026" >
+                                        id="published_year" name="published_year"
+                                        value="{{ old('published_year', $book->published_year) }}" placeholder="2026">
 
                                     @error('published_year')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -111,7 +125,7 @@
                             <div class="mb-3 text-white-50 mb-0">
                                 <label for="description" class="form-label">Descrição</label>
                                 <textarea class="form-control" id="description" name="description" rows="5"
-                                    placeholder="Digite a descrição do livro...">{{ old('description',$book->description) }}</textarea>
+                                    placeholder="Digite a descrição do livro...">{{ old('description', $book->description) }}</textarea>
                             </div>
 
                             <!-- Botões -->

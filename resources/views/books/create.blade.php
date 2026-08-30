@@ -26,7 +26,8 @@
                                 <input type="text"
                                     class="form-control @error('title') is-invalid 
                                 @enderror"
-                                    id="title" name="title" placeholder="Digite o título do livro" value="{{old('title')}}">
+                                    id="title" name="title" placeholder="Digite o título do livro"
+                                    value="{{ old('title') }}">
 
                                 @error('title')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -40,7 +41,8 @@
                                 <input type="text"
                                     class="form-control @error('author') is-invalid 
                                 @enderror"
-                                    id="author" name="author" placeholder="Digite o nome do autor" value="{{old('author')}}">
+                                    id="author" name="author" placeholder="Digite o nome do autor"
+                                    value="{{ old('author') }}">
 
                                 @error('author')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -49,22 +51,29 @@
 
                             <!-- Capa do Livro -->
                             <div class="mb-3 text-white-50 mb-0">
-                                <label for="cover" class="form-label">Capa do Livro</label>
-                                <input type="file" class="form-control @error('cover') is-invalid @enderror" id="cover" name="cover"
-                                    accept="image/*">
-                                    @error('cover')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                <div class="form-text">Imagem JPG, PNG ou WebP (máx. 2MB)</div>
+                                <label for="cover" class="form-label">Capa do Livro<span
+                                        class="text-danger">*</span></label>
+                                <input type="file" class="form-control @error('cover') is-invalid @enderror"
+                                    id="cover" name="cover" accept="image/*">
+                                @error('cover')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <div class="form-text text-white-50">IMAGEM JPG ou PNG (máx. 2MB)</div>
                             </div>
                             <!-- Livro -->
-                            {{-- <div class="mb-3 text-white-50">
-                                <label for="pdf_file" class="form-label">Arquivo do Livro (PDF) <span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" id="pdf_file" name="pdf_file"
-                                    accept=".pdf,application/pdf" required>
-                                <div class="form-text text-white-50">Apenas arquivos no formato PDF (máx. 10MB)</div>
-                            </div> --}}
+                            <div class="mb-3 text-white-50 mb-0">
+                                <label for="pdf_file" class="form-label">Arquivo do Livro (PDF)</label>
+                                <input type="file" name="pdf_file" id="pdf_file" class="form-control"accept=".pdf,application/pdf">
 
+                                @if (isset($book) && $book->pdf_file)
+                                    <small class="text-muted d-block mt-1">
+                                        PDF atual cadastrado:
+                                        <a href="{{ asset($book->pdf_file) }}" target="_blank">Visualizar PDF</a>
+                                    </small>
+                                @endif
+                                <div class="form-text text-white-50">PDF OPICIONAL DE ATÉ 10MB (10240 KB)</div>
+                            </div>
+                            
                             <!-- Gênero e Ano de Publicação -->
                             <div class="row mb-3 text-white-50">
                                 <!-- CAMPO GÊNERO -->
@@ -94,7 +103,7 @@
                                     <input type="number"
                                         class="form-control @error('published_year') is-invalid @enderror"
                                         id="published_year" name="published_year" value="{{ old('published_year') }}"
-                                        placeholder="2026" >
+                                        placeholder="2026">
 
                                     @error('published_year')
                                         <div class="invalid-feedback">{{ $message }}</div>
